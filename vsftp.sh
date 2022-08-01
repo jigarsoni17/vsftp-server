@@ -2,8 +2,7 @@
 
 #install vsftp service 
 echo -e "Installing vsftp service into your machine....."
-#sudo yum -y install vsftpd
-sudo apt install vsftpd -y 
+sudo yum -y install vsftpd 
 
 cd /etc/vsftpd/ && sed -i 's/anonymous_enable=YES/anonymous_enable=NO/' vsftp.conf && sed -i 's/local_enable=NO/local_enable=YES/' vsftp.conf && sed -i 's/write_enable=NO/write_enable=YES/' vsftp.conf && sed -i 's/chroot_local_user=NO/chroot_local_user=YES/' vsftp.conf
 
