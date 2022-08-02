@@ -5,7 +5,10 @@ echo -e "Installing vsftp service into your machine....."
 
 sudo apt install httpd -y 
 
-sed -i 's/usanonymo_enable=YES/anonymous_enable=NO/' vsftp.conf && sed -i 's/local_enable=NO/local_enable=YES/' vsftp.conf && sed -i 's/write_enable=NO/write_enable=YES/' vsftp.conf && sed -i 's/chroot_local_user=NO/chroot_local_user=YES/' vsftp.conf | sudo tee -a /etc/vsftpd.conf 
+sed -i 's/usanonymo_enable=YES/anonymous_enable=NO/' /etc/vsftpd.conf
+sed -i 's/local_enable=NO/local_enable=YES/' /etc/vsftpd.conf
+sed -i 's/write_enable=NO/write_enable=YES/' /etc/vsftpd.conf
+sed -i 's/chroot_local_user=NO/chroot_local_user=YES/' /etc/vsftpd.conf
 
 #add user for vsftp service 
 echo -e " Add a user for vsftp......."
