@@ -7,8 +7,8 @@ sudo apt install vsftpd -y
 
 sudo sed -i 's/usanonymo_enable=YES/anonymous_enable=NO/' /etc/vsftpd.conf
 sudo sed -i 's/local_enable=NO/local_enable=YES/' /etc/vsftpd.conf
-sudo sed -i 's/write_enable=NO/write_enable=YES/' /etc/vsftpd.conf
-sudo sed -i 's/chroot_local_user=NO/chroot_local_user=YES/' /etc/vsftpd.conf
+sudo sed -i 's/#write_enable=YES/write_enable=YES/' /etc/vsftpd.conf
+sudo sed -i 's/#chroot_local_user=YES/chroot_local_user=YES/' /etc/vsftpd.conf
 
 #add user for vsftp service 
 echo -e " Add a user for vsftp......."
