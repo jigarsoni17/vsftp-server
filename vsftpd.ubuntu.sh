@@ -17,7 +17,7 @@ if [ $(id -u) -eq 0 ]; then
 	read -p "Enter username : " username
 	read -s -p "Enter password : " password
 	egrep "^$username" /etc/passwd >/dev/null
-	if [ $? -eq 0 ]; then
+	if [ $? -eq 0 ]; then        #............. if [$? -ne 0]...The whole line means.....'if the previous return code was not equal to 0 ' ....It will then be followed by....then....statement # do something                        
 		echo "$username exists!"
 		exit 1
 	else
