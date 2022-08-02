@@ -3,7 +3,7 @@
 #install vsftp service 
 echo -e "Installing vsftp service into your machine....."
 
-sudo apt install httpd -y 
+sudo apt install vsftpd -y 
 
 sed -i 's/usanonymo_enable=YES/anonymous_enable=NO/' /etc/vsftpd.conf
 sed -i 's/local_enable=NO/local_enable=YES/' /etc/vsftpd.conf
