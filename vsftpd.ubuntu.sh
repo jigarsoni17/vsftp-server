@@ -38,8 +38,7 @@ ip=$(hostname -I | awk '{print $1}')
 echo -e "rsa_cert_file=/etc/ssl/private/vsftpd.pem\nrsa_private_key_file=/etc/ssl/private/vsftpd.pem\nssl_enable=YES\nallow_anon_ssl=NO\nforce_local_data_ssl=YES\nforce_local_logins_ssl=YES\nssl_tlsv1=YES\nssl_sslv2=NO\nssl_sslv3=NO\nrequire_ssl_reuse=NO\nssl_ciphers=HIGH" | sudo tee -a /etc/vsftpd.conf
 echo -e "# BEGIN ANSIBLE MANAGED BLOCK\nchroot_local_user=YES\nchroot_list_enable=YES\nchroot_list_file=/etc/vsftpd/chroot_list\n#port_enable=YES\n#pasv_enable=YES\npasv_promiscuous=YES\npasv_max_port=24200\npasv_min_port=24000\npasv_address=$ip" | sudo tee -a /etc/vsftpd.conf
 
-mkdir -p /etc/vsftpd/chroot_list 
-echo -e "ftpuser" | sudo tee -a /etc/vsftpd/chroot_list
+sudo mkdir -p /etc/vsftpd && echo -e "ftpuser" | sudo tee -a /etc/vsftpd/chroot_list
 
 systemctl enable --now vsftpd.service
 
